@@ -9,8 +9,10 @@ setInterval(()=>{
   var currentDate = new Date();
   var timeDiff = Math.abs(currentDate-targetDate);
   for(var i=0; i<spans.length;i++){
-    spans[i].innerText = Math.round(timeDiff/array[i]);
-    pElem.style.width=''+100*(permDiff-timeDiff/20)/permDiff+'%';
-	//console.log(((permDiff-timeDiff/20)/permDiff)*100);
-  }
+    spans[i].innerText = (Math.round(timeDiff/array[i])).toString(2);
+	spans[i].title=Math.round(timeDiff/array[i]);
+  } 
+  //console.log(((permDiff-timeDiff/20)/permDiff)*100);
+  pElem.style.width=''+100*(permDiff-timeDiff/20)/permDiff+'%';
+  pElem.innerText = "Loading... "+100*(permDiff-timeDiff/20)/permDiff+'%';
 },1000)
